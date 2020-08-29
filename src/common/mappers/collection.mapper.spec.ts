@@ -4,10 +4,11 @@ import * as viewModel from '../../pods/hotel-collection/hotel-collection.vm';
 import { mapFromApiToVm } from '../../pods/hotel-collection/hotel-collection.mapper';
 
 describe('Test de mappers/collection', () => {
-  it('Should return an empty array when passing anything different than an array ', () => {
+  it('Should return an empty array when passing anything different than apiModel ', () => {
     //ARRANGE
     const passingNull = null;
     const passingUndefined = undefined;
+    const passingEmpty = [];
 
     //ACT
     const returningNull = mapToCollection(passingNull, (test) => {
@@ -16,10 +17,14 @@ describe('Test de mappers/collection', () => {
     const returningUndefined = mapToCollection(passingUndefined, (test) => {
       return test;
     });
+    const returningEmpty = mapToCollection(passingEmpty, (test) => {
+      return test;
+    });
 
     //ASSERT
     expect(returningNull).toEqual([]);
     expect(returningUndefined).toEqual([]);
+    expect(returningEmpty).toEqual([]);
   });
 
   it('Should return a object mapped using the function passed ', () => {
@@ -37,7 +42,7 @@ describe('Test de mappers/collection', () => {
     expect(result).toEqual(array.map(funct));
   });
 
-  it('Should return the same object when mapping using hotel-collection mapper ', () => {
+  it('Should return the expected object when mapping using hotel-collection mapper ', () => {
     //ARRANGE
     const passedObject = [
       {

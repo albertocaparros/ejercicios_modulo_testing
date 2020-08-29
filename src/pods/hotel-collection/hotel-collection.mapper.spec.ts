@@ -3,7 +3,7 @@ import * as apiModel from './hotel-collection.api';
 import * as viewModel from './hotel-collection.vm';
 
 describe('Test de hotel-collection.mapper', () => {
-  it('Should return the correct HotelEntityVm object when passing a mock HotelEntityApi object ', () => {
+  it('Should return the expected HotelEntityVm object when passing a mock HotelEntityApi object ', () => {
     //ARRANGE
     const passedObject: apiModel.HotelEntityApi = {
       id: '0248058a-27e4-11e6-ace6-a9876eff01b3',
