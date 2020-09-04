@@ -22,41 +22,42 @@ interface Props {
   initialLogin: LoginEntityVm;
 }
 
-export const LoginComponent: React.FunctionComponent<Props> = props => {
+export const LoginComponent: React.FunctionComponent<Props> = (props) => {
   const classes = useStyles(props);
   const { onLogin, initialLogin } = props;
 
   return (
     <Card>
-      <CardHeader title="Login" />
+      <CardHeader title='Login' />
       <CardContent>
         <div className={classes.formContainer}>
           <Form
-            onSubmit={values => onLogin(values)}
+            onSubmit={(values) => onLogin(values)}
             initialValues={initialLogin}
             render={({ handleSubmit, submitting, pristine, values }) => (
               <form onSubmit={handleSubmit} noValidate>
                 <Field
                   fullWidth
-                  name="login"
+                  name='login'
                   component={TextField}
-                  type="text"
-                  label="Name"
+                  type='text'
+                  label='Name'
                   validate={(value, _, meta) =>
                     formValidation.validateField(meta.name, value)
                   }
                 />
                 <Field
                   fullWidth
-                  name="password"
+                  name='password'
                   component={TextField}
-                  type="password"
-                  label="Password"
+                  type='password'
+                  label='Password'
+                  data-testid='password'
                   validate={(value, _, meta) =>
                     formValidation.validateField(meta.name, value)
                   }
                 />
-                <Button type="submit" variant="contained" color="primary">
+                <Button type='submit' variant='contained' color='primary'>
                   Login
                 </Button>
               </form>
