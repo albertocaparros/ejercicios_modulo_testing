@@ -26,15 +26,17 @@ describe('Login component specs', () => {
       render(<HotelCollectionContainer />);
     });
 
-    const addressElement = screen.queryByText(props.hotelCollection[0].address);
-    const descriptionElement = screen.queryByText(
+    const addressElement = screen.getByText(props.hotelCollection[0].address);
+    const descriptionElement = screen.getByText(
       props.hotelCollection[0].description
     );
-    const nameElement = screen.queryByText(props.hotelCollection[0].name);
+    const nameElement = screen.getByText(props.hotelCollection[0].name);
 
     //Assert
     expect(addressElement).toBeInTheDocument();
     expect(descriptionElement).toBeInTheDocument();
     expect(nameElement).toBeInTheDocument();
+
+    //Tengo que mockear loadHotelCollection? o llamarla en el test? como mockeo que el container haga la llamada a la API?
   });
 });

@@ -31,8 +31,8 @@ describe('Login component specs', () => {
     //Act
     render(<LoginComponent {...props} />);
 
-    const nameElement = screen.queryByRole('textbox');
-    const passwordElement = screen.getByTestId('password');
+    const nameElement = screen.queryByRole('textbox') as HTMLInputElement;
+    const passwordElement = screen.getByTestId('password') as HTMLInputElement; //Porque no me deja acceder al input si no es con un test-id ??
     const buttonElement = screen.getByRole('button');
 
     //Assert
@@ -40,8 +40,8 @@ describe('Login component specs', () => {
     expect(passwordElement).toBeInTheDocument();
     expect(buttonElement).toBeInTheDocument();
 
-    expect(nameElement.getAttribute('value')).toEqual('admin');
-    //expect(passwordElement.getAttribute('value')).toEqual('test');
+    expect(nameElement.value).toEqual('admin');
+    expect(passwordElement.value).toEqual('test'); //Porque no aparece el valor dentro del input password?
   });
 
   it('Should login succesfully when clicking on submit with the correct values for name and password', async () => {

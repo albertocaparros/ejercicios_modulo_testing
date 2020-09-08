@@ -52,7 +52,7 @@ export const LoginComponent: React.FunctionComponent<Props> = (props) => {
                   component={TextField}
                   type='password'
                   label='Password'
-                  data-testid='password'
+                  data-testid='password' //ESTO LO HE AÑADIDO YO
                   validate={(value, _, meta) =>
                     formValidation.validateField(meta.name, value)
                   }

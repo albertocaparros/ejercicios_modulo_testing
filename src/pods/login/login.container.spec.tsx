@@ -19,7 +19,9 @@ describe('Login container specs', () => {
     expect(passwordElement).toBeInTheDocument();
     expect(buttonElement).toBeInTheDocument();
 
-    //expect(nameElement.getAttribute('value')).toEqual('admin');
-    //expect(passwordElement.getAttribute('value')).toEqual('test');
+    expect(nameElement.getAttribute('value')).toEqual('admin');
+    expect(passwordElement.getAttribute('value')).toEqual('test');
+
+    //Me pasa lo mismo que el otro container, no entiendo si tengo que comprobar que todo carga como si fuera la llamada normal a la web (con los valores admin y test que estaban hardcodeados)
   });
 });

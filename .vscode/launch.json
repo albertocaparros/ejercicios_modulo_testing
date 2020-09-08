@@ -12,7 +12,8 @@
         "./config/test/jest.js",
         "--verbose",
         "-i",
-        "--no-cache"
+        "--no-cache",
+        "--watchAll"
       ],
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen"
