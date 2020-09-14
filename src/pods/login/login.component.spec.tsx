@@ -32,7 +32,9 @@ describe('Login component specs', () => {
     render(<LoginComponent {...props} />);
 
     const nameElement = screen.queryByRole('textbox') as HTMLInputElement;
-    const passwordElement = screen.getByTestId('password') as HTMLInputElement; //Porque no me deja acceder al input si no es con un test-id ??
+    const passwordElement = screen.getByLabelText(
+      'Password'
+    ) as HTMLInputElement;
     const buttonElement = screen.getByRole('button');
 
     //Assert
@@ -72,7 +74,9 @@ describe('Login component specs', () => {
     const { rerender } = render(<LoginComponent {...props} />);
 
     const nameElement = screen.queryByRole('textbox');
-    const passwordElement = screen.getByTestId('password');
+    const passwordElement = screen.getByLabelText(
+      'Password'
+    ) as HTMLInputElement;
     const buttonElement = screen.getByRole('button');
 
     await act(async () => {
